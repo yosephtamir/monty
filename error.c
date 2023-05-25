@@ -35,7 +35,7 @@ void handle_error(int code)
 	}
 }
 /**
- * malloc_fail - error in case malloc fail
+ * malloc_fail - error in case of malloc fail
  */
 void malloc_fail(void)
 {

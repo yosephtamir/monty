@@ -73,8 +73,9 @@ typedef struct error
 	void (*error_type)(void);
 } error_t;
 
+/********* Error-Handler**********/
 
-void errorhandler(int code);
+void handle_error(int code);
 void malloc_fail(void);
 void monty_usage(void);
 void push_use(void);
@@ -92,36 +93,50 @@ void mod_error(void);
 void pchar_error(void);
 void pchar_error_2(void);
 
-int trt_monty(char *filename);
-int splt(void);
-int exc_monty(stack_t **stack);
+
+
+
+/****** Engine *****/
+
+int treat_monty(char *filename);
+int split(void);
+int excute_monty(stack_t **stack);
+
+/***** Monty-Command******/
 
 void push_monty(stack_t **stack, unsigned int line_number);
-void all_monty(stack_t **stack, unsigned int line_number);
-void int_monty(stack_t **stack, unsigned int line_number);
-void popout_monty(stack_t **stack, unsigned int line_number);
-void swapt_monty(stack_t **stack, unsigned int line_number);
-void addi_monty(stack_t **stack, unsigned int line_number);
-void nope_monty(stack_t **stack, unsigned int line_number);
-void subs_monty(stack_t **stack, unsigned int line_number);
-void divi_monty(stack_t **stack, unsigned int line_number);
-void mult_monty(stack_t **stack, unsigned int line_number);
+void pall_monty(stack_t **stack, unsigned int line_number);
+void pint_monty(stack_t **stack, unsigned int line_number);
+void pop_monty(stack_t **stack, unsigned int line_number);
+void swap_monty(stack_t **stack, unsigned int line_number);
+void add_monty(stack_t **stack, unsigned int line_number);
+void nop_monty(stack_t **stack, unsigned int line_number);
+void sub_monty(stack_t **stack, unsigned int line_number);
+void div_monty(stack_t **stack, unsigned int line_number);
+void mul_monty(stack_t **stack, unsigned int line_number);
 void mod_monty(stack_t **stack, unsigned int line_number);
-void ppchar_monty(stack_t **stack, unsigned int line_number);
-void ppstr_monty(stack_t **stack, unsigned int line_number);
-void rtr_monty(stack_t **stack, unsigned int line_number);
-void rtl_monty(stack_t **stack, unsigned int line_number);
-void _qu(stack_t **stack, unsigned int line_number);
-void _stacks(stack_t **stack, unsigned int line_number);
+void pchar_monty(stack_t **stack, unsigned int line_number);
+void pstr_monty(stack_t **stack, unsigned int line_number);
+void rotr_monty(stack_t **stack, unsigned int line_number);
+void rotl_monty(stack_t **stack, unsigned int line_number);
+void _queue(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
 
-void freeInfo(void);
-void freeList(stack_t *stack);
-void *_reallocate(void *ptr, unsigned int old_size, unsigned int new_size);
-char *_memcopy(char *dest, char *src, unsigned int n);
-void *fill_in_an_array(void *a, int el, unsigned int len);
-int _checkisdigit(char *str);
-int dlistint_length(stack_t *stack);
-int delete_dnodeint_at_an_index(stack_t **head, int index);
-void add_new_node_fifo(stack_t **stack, stack_t *new_node);
-void add_new_node_lifo(stack_t **stack, stack_t *new_node);
+
+/****** Helpers *********/
+
+void free_info(void);
+void free_list(stack_t *stack);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_memcpy(char *dest, char *src, unsigned int n);
+void *fill_an_array(void *a, int el, unsigned int len);
+int _isdigit(char *str);
+int dlistint_len(stack_t *stack);
+int delete_dnodeint_at_index(stack_t **head, int index);
+void add_node_fifo(stack_t **stack, stack_t *new_node);
+void add_node_lifo(stack_t **stack, stack_t *new_node);
+
+
+
+
 #endif
